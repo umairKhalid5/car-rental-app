@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ book ride button: linear-gradient(to right,#ff4c30,#ff6830,#fff,#f3806f);
+     		  background-size: 300% 100%;
+ black button: #161616;
+ 'big' color: #ff4d30;
+ active nav, quotes, faqs, scrolltop: #FF4C30;
+ search btn: background: linear-gradient(-36deg,#ff4c30 0,#ff6830 100%);
+ all button shadows: box-shadow: 0 10px 15px rgba(255,83,48,.35);
+ slickdots: #ff6f1e,
+ inactivedot: #bbb6cb;
+ section1: #f8f8f8;
+ saveBigBg: #2d2d2d;
+ testimonialsbg: ##f9f9f9; */
