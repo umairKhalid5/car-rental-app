@@ -74,7 +74,7 @@ const hours = [
 const BookingForm = () => {
   return (
     <div className="relative z-20 max-w-6xl mx-auto mt-5 mb-10 px-4 py-8 bg-white shadow-md rounded md:px-10 lg:mt-32">
-      <h3 className="text-2xl font-semibold mb-5">Book a car</h3>
+      <h3 className="text-2xl font-semibold mb-5 tracking-tight">Book a car</h3>
 
       {/* Select Boxes Container */}
       <div className="flex flex-col items-center justify-between md:flex-row md:flex-wrap gap-5">

@@ -11,6 +11,34 @@
   background-position: top right;
   background-repeat: no-repeat;
 }
+.cta-container {
+  background-image: url('/images/cta.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+.app-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+.app-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* .section-7 {
+  background-image: url('/images/app.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+} */
+
+@media (max-width: 500px) {
+  .cta-container {
+    background-size: cover;
+  }
+}
 
 /* 
  book ride button: linear-gradient(to right,#ff4c30,#ff6830,#fff,#f3806f);

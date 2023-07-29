@@ -26,10 +26,10 @@ const Section1 = () => {
 
           {/* Buttons */}
           <div className="buttons flex-col my-5 space-y-2 flex w-full sm:flex-row sm:space-x-2 sm:space-y-0">
-            <button className="btn py-3 px-10 text-white shadow-lg shadow-shadowClr rounded-t flex-1 md:flex-none">
+            <button className="btn py-3 px-10 text-white font-semibold shadow-lg shadow-shadowClr rounded-t flex-1 md:flex-none">
               Book Ride
             </button>
-            <button className="bg-blackBtn py-3 px-10 rounded-b text-white flex-1 md:flex-none">
+            <button className="bg-blackBtn py-3 px-10 rounded-b text-white font-semibold flex-1 md:flex-none">
               Learn More
             </button>
           </div>

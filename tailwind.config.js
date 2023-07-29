@@ -13,6 +13,8 @@ export default {
         backgroundLight: '#f8f8f8',
         backgroundDark: '#2d2d2d',
         'testimonials-bg': '#f9f9f9',
+        ctaClr: '#2d2d2d',
+        sliderBg: '#f1f1f1',
       },
       fontFamily: {
         sans: ['Rubik', 'sans-serif'],
