@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn {
+  background: linear-gradient(to right, #ff4c30, #ff6830, #fff, #f3806f);
+  background-size: 300% 100%;
+}
+.banner-img {
+  background-image: url('/images/banner_image.png');
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
 /* 
  book ride button: linear-gradient(to right,#ff4c30,#ff6830,#fff,#f3806f);
      		  background-size: 300% 100%;

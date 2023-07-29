@@ -1,9 +1,12 @@
 import React from 'react';
+import Section1 from './components/Section1';
+import Section2 from './components/Section2';
 
 function App() {
   return (
-    <div className="mx-auto bg-section1 w-full">
-      <div className="max-w-6xl mx-auto bg-cyan-100">Everything goes here</div>
+    <div>
+      <Section1 />
+      <Section2 />
     </div>
   );
 }

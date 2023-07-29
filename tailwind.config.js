@@ -6,8 +6,8 @@ export default {
       colors: {
         blackBtn: '#161616',
         fontAccent: '#ff4d30',
-        active: '##FF4C30',
-        shadow: 'rgba(255,83,48,.35)',
+        activeEl: '#FF4C30',
+        shadowClr: 'rgba(255,83,48,.35)',
         Dot: '#bbb6cb',
         activeDot: '#ff6f1e',
         backgroundLight: '#f8f8f8',
