@@ -17,7 +17,6 @@ const Section6 = () => {
       {/* FAQ Container */}
       <div className="max-w-3xl mx-auto mt-16">
         {/* Text */}
-        {/* Text */}
         <div className="mx-auto flex flex-col items-center space-y-8">
           <div className="space-y-2">
             <p className="text-xl sm:text-2xl text-center font-medium tracking-tighter">

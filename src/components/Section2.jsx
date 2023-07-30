@@ -14,9 +14,9 @@ const Section2 = () => {
           </h3>
         </div>
         {/* Flex Container */}
-        <div className="mt-14 flex flex-col items-center justify-between space-y-10 md:flex-row md:space-y-0 md:space-x-16">
+        <div className="mt-10 md:mt-14 flex flex-col items-center justify-between space-y-10 md:flex-row md:space-y-0 md:space-x-16">
           {/* Box 1 */}
-          <div className="text-center flex-1 flex flex-col items-center space-y-3">
+          <div className="text-center flex-1 flex flex-col items-center space-y-3 plan-box">
             <img
               src="/images/iconbox-image_01.png"
               alt="icon-1"
@@ -29,7 +29,7 @@ const Section2 = () => {
             </p>
           </div>
           {/* Box 2 */}
-          <div className="text-center flex-1 flex flex-col items-center space-y-3">
+          <div className="text-center flex-1 flex flex-col items-center space-y-3 plan-box">
             <img
               src="/images/iconbox-image_02.png"
               alt="icon-1"
@@ -42,7 +42,7 @@ const Section2 = () => {
             </p>
           </div>
           {/* Box 3 */}
-          <div className="text-center flex-1 flex flex-col items-center space-y-3">
+          <div className="text-center flex-1 flex flex-col items-center space-y-3 plan-box">
             <img
               src="/images/iconbox-image_01.png"
               alt="icon-1"

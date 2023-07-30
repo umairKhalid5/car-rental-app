@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { Scale } from '@mui/icons-material';
 
 const testimonialsArr = [
   {
@@ -49,7 +48,10 @@ const Section5 = () => {
   }, []);
 
   return (
-    <section className="px-4 overflow-hidden bg-testimonials-bg">
+    <section
+      className="px-4 overflow-hidden bg-testimonials-bg"
+      id="testimonials"
+    >
       <div className="max-w-6xl mx-auto mt-16">
         {/* Text */}
         <div className="mx-auto flex flex-col items-center space-y-8">
@@ -69,8 +71,8 @@ const Section5 = () => {
         </div>
 
         {/* Slider */}
-        <div className="mt-10 mb-16 shadow-md">
-          <div className="bg-sliderBg py-3 px-2 rounded">
+        <div className="mt-10 mb-16 shadow-lg">
+          <div className="bg-sliderBg p-2 rounded">
             <Carousel
               infiniteLoop
               autoPlay
@@ -85,7 +87,7 @@ const Section5 = () => {
               {testimonialsArr.map((person, i) => (
                 <div
                   key={i}
-                  className="relative w-full md:w-11/12 bg-white p-7 py-14 rounded space-y-6"
+                  className="relative w-full md:w-11/12 bg-white p-7 py-16 rounded space-y-6"
                 >
                   <h3 className="text-left text-xl sm:text-2xl font-semibold tracking-tighter">
                     {person.msg}

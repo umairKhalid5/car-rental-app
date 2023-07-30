@@ -5,6 +5,16 @@
 .btn {
   background: linear-gradient(to right, #ff4c30, #ff6830, #fff, #f3806f);
   background-size: 300% 100%;
+  transition: all 0.2s ease;
+}
+button:hover {
+  opacity: 0.85;
+}
+button:active {
+  @apply shadow-xl shadow-shadowClr translate-y-1;
+}
+select {
+  cursor: pointer;
 }
 .banner-img {
   background-image: url('/images/banner_image.png');
@@ -28,16 +38,80 @@
   height: 100%;
   object-fit: cover;
 }
-/* .section-7 {
-  background-image: url('/images/app.png');
-  background-position: top right;
-  background-repeat: no-repeat;
-} */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  row-gap: 1.5rem;
+  column-gap: 1rem;
+  justify-content: space-between;
+}
+.plan-box:hover.plan-box img {
+  animation: wobble 1s ease;
+}
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+  15% {
+    transform: translateX(-16px) rotate(-10deg);
+  }
+  30% {
+    transform: translateX(calc(16px / 2)) rotate(10deg);
+  }
+  45% {
+    transform: translateX(calc(-16px / 2)) rotate(calc(-10deg / 1.8));
+  }
+  60% {
+    transform: translateX(calc(16px / 3.3)) rotate(calc(10deg / 3));
+  }
+  75% {
+    transform: translateX(calc(-16px / 5.5)) rotate(calc(-10deg / 5));
+  }
+}
+
+.choose-box:hover.choose-box img {
+  animation: rotate 1s ease;
+}
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: y 360deg;
+  }
+}
+
+.icons svg {
+  transition: color 0.2s ease;
+}
+.icons svg:hover {
+  color: #ff4d30;
+}
 
 @media (max-width: 500px) {
   .cta-container {
     background-size: cover;
   }
+}
+
+.mobile-wrapper,
+.mobile-menu {
+  translate: -110%;
+  transition: all 0.3s ease-in;
+  transition-delay: 0.3s;
+}
+.mobile-wrapper .mobile-menu {
+  transition-delay: 0s;
+}
+.mobile-wrapper.show {
+  translate: 0;
+  transition-delay: 0s;
+}
+.mobile-wrapper.show .mobile-menu {
+  translate: 0;
+  transition-delay: 0.3s;
 }
 
 /* 

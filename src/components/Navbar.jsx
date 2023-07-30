@@ -1,44 +1,164 @@
-import React from 'react';
+import React, { useState } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = () => {
+  const [showMobNav, setShowMobNav] = useState(false);
+
   return (
-    <nav className="relative z-20 flex items-center justify-between max-w-6xl mx-auto pt-5">
+    <nav className="relative z-30 flex items-center justify-between max-w-6xl mx-auto pt-5">
       {/* Logo & Nav Links */}
-      <div className="left flex items-center gap-16">
-        <div className="logo w-36">
+      <div className="left flex items-center gap-14">
+        <div className="logo w-36 cursor-pointer">
           <img src="/images/logo.png" alt="logo" />
         </div>
-        <div className="hidden lg:flex lg:items-center lg:gap-6 lg:font-medium">
-          <a
-            href="#"
-            className="text-activeEl hover:text-activeEl duration-150"
-          >
-            Home
-          </a>
-          <a href="#" className="hover:text-activeEl duration-150">
-            About
-          </a>
-          <a href="#" className="hover:text-activeEl duration-150">
-            Vehicle Models
-          </a>
-          <a href="#" className="hover:text-activeEl duration-150">
-            Testimonials
-          </a>
-          <a href="#" className="hover:text-activeEl duration-150">
-            Our Team
-          </a>
-          <a href="#" className="hover:text-activeEl duration-150">
-            Contact
-          </a>
-        </div>
+        {/* Nav Items */}
+        <ul className="hidden lg:flex lg:items-center lg:gap-9 lg:font-medium">
+          <li>
+            <a
+              href="#"
+              className="text-activeEl hover:text-activeEl duration-150"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#booking" className="hover:text-activeEl duration-150">
+              Book Ride
+            </a>
+          </li>
+          <li>
+            <a href="#about" className="hover:text-activeEl duration-150">
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#testimonials"
+              className="hover:text-activeEl duration-150"
+            >
+              Testimonials
+            </a>
+          </li>
+          <li>
+            <a href="#app" className="hover:text-activeEl duration-150">
+              App
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:text-activeEl duration-150">
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
 
       {/* Buttons */}
-      <div className="right space-x-6 font-medium">
-        <button>Sign In</button>
+      <div className="hidden space-x-6 font-medium lg:block">
+        <a className="select-none hover:text-fontAccent inline-block active:translate-y-[4px] transition duration-200 cursor-pointer">
+          Sign In
+        </a>
         <button className="btn py-3 px-6 rounded text-white shadow-lg shadow-shadowClr">
           Register
         </button>
+      </div>
+
+      {/* Hamburger Icon */}
+      <div
+        className="lg:hidden cursor-pointer"
+        onClick={() => setShowMobNav(true)}
+      >
+        <MenuIcon sx={{ color: '#ff4d30', fontSize: '2.5rem' }} />
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`mobile-wrapper ${
+          showMobNav && 'show'
+        } z-30 fixed inset-0 w-full h-screen bg-zinc-900/50 lg:hidden`}
+      >
+        <div className="mobile-menu py-6 px-4 bg-white h-screen">
+          {/* Logo and Close Button */}
+          <div className=" flex items-center justify-between">
+            <div className="logo w-32">
+              <img src="/images/logo.png" alt="logo" />
+            </div>
+            <div
+              className="p-[2px] border rounded cursor-pointer"
+              onClick={() => setShowMobNav(false)}
+            >
+              <CloseIcon sx={{ color: '#6F6F6F', fontSize: '2rem' }} />
+            </div>
+          </div>
+
+          {/* Nav Items */}
+          <ul className="flex flex-col gap-9 mt-10 font-medium">
+            <li>
+              <a
+                href="#"
+                className="text-activeEl hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="#booking"
+                className="hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                Book Ride
+              </a>
+            </li>
+            <li>
+              <a
+                href="#about"
+                className="hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a
+                href="#testimonials"
+                className="hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <a
+                href="#app"
+                className="hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                App
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="hover:text-activeEl duration-150"
+                onClick={() => setShowMobNav(false)}
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
+
+          {/* Buttons */}
+          <div className="space-x-6 font-medium mt-10 flex justify-center">
+            <button className="flex-1 py-3 px-6 rounded border-2 border-fontAccent text-fontAccent shadow-lg hover:bg-blackBtn hover:text-white hover:border-blackBtn transition duration-200">
+              Sign In
+            </button>
+            <button className="flex-1 btn py-3 px-6 rounded border-2 border-fontAccent text-white shadow-lg shadow-shadowClr">
+              Register
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );

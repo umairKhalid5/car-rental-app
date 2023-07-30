@@ -2,7 +2,7 @@ import React from 'react';
 
 const Section3 = () => {
   return (
-    <section className="overflow-hidden">
+    <section className="overflow-hidden" id="about">
       <div className="px-4 max-w-6xl mx-auto mt-16">
         {/* About Container*/}
         <div className="flex flex-col space-y-10 md:flex-row md:space-x-5 lg:space-x-32 md:space-y-0">
@@ -49,7 +49,7 @@ const Section3 = () => {
             </p>
           </div>
           <div>
-            <button className="btn py-4 px-12 text-white shadow-lg shadow-shadowClr rounded text-lg font-semibold">
+            <button className="btn py-4 px-12 text-white shadow-lg shadow-shadowClr rounded text-lg font-semibold hover:-translate-y-[2px] hover:opacity-100 active:translate-y-1">
               Book Ride
             </button>
           </div>
