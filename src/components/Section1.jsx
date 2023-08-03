@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar';
 import BookingForm from './BookingForm';
 import { useInView } from 'react-intersection-observer';
+import ConfirmationBox from './ConfirmationBox';
 
 const options = {
   triggerOnce: true,
@@ -14,6 +15,8 @@ const Section1 = () => {
     rootMargin: '-100px',
     initialInView: true,
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const scrollToBooking = () =>
     document.getElementById('booking').scrollIntoView({ block: 'center' });
@@ -77,7 +80,13 @@ const Section1 = () => {
       <div className="absolute bg-white bottom-0 right-0 left-0 h-96 sm:h-72 lg:h-52"></div>
 
       {/* Booking Form */}
-      <BookingForm />
+      <BookingForm onIsSubmitted={setIsSubmitted} />
+
+      {/* Confirmation Box */}
+      <ConfirmationBox
+        isSubmitted={isSubmitted}
+        onIsSubmitted={setIsSubmitted}
+      />
     </section>
   );
 };

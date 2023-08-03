@@ -18,13 +18,15 @@ const Backdrop = props => {
 };
 
 const Modal = props => {
+  const { bookingDataObj } = props;
+
   return (
     <div
       className={`modal ${
         props.showBookingForm && 'show'
       } w-full fixed h-screen text-white flex justify-center items-center max-w-[98%] mx-auto z-[100] lg:w-3/5`}
     >
-      <div className="bg-white max-w-6xl max-h-[90%] overflow-y-auto border border-white tracking-tight">
+      <div className="bg-white max-w-6xl max-h-[90%] overflow-y-auto border border-white tracking-tight shadow-lg shadow-zinc-100/20 rounded">
         {/* Complete Reservation & Close Box */}
         <div className="flex space-x-10 item-center justify-between bg-fontAccent py-4 px-3">
           <h3 className="font-semibold text-2xl">Complete Reservation</h3>
@@ -64,7 +66,9 @@ const Modal = props => {
               </div>
               <div className="flex flex-col space-y-1 items-start">
                 <p className="font-medium text-sm">Pick-Up Time</p>
-                <p className="text-zinc-500">03/08/2023 12:00 AM</p>
+                <p className="text-zinc-500">
+                  {bookingDataObj?.pickUpDate} - {bookingDataObj?.pickUpTime}
+                </p>
               </div>
             </div>
             {/* Box 2*/}
@@ -74,7 +78,9 @@ const Modal = props => {
               </div>
               <div className="flex flex-col space-y-1 items-start">
                 <p className="font-medium text-sm">Drop-Off Time</p>
-                <p className="text-zinc-500">03/08/2023 09:00 AM</p>
+                <p className="text-zinc-500">
+                  {bookingDataObj?.dropOffDate} - {bookingDataObj?.dropOffTime}
+                </p>
               </div>
             </div>
             {/* Box 3*/}
@@ -85,7 +91,7 @@ const Modal = props => {
               <div className="flex flex-col space-y-1 items-start">
                 <p className="font-medium text-sm">Pick-Up Location</p>
                 <p className="text-zinc-500">
-                  Santa Monica - 2102 Lincoln Blvd
+                  {bookingDataObj?.pickUpLocation}
                 </p>
               </div>
             </div>
@@ -97,7 +103,7 @@ const Modal = props => {
               <div className="flex flex-col space-y-1 items-start">
                 <p className="font-medium text-sm">Drop-Off Location</p>
                 <p className="text-zinc-500">
-                  3669 Oliver Street Wedgwood Texas
+                  {bookingDataObj?.dropOffLocation}
                 </p>
               </div>
             </div>
@@ -106,10 +112,18 @@ const Modal = props => {
           {/* Right */}
           <div className="space-y-4 flex-1">
             <h5 className="text-left text-fontAccent text-lg font-medium">
-              CAR: Mercedes 35
+              CAR:{' '}
+              <span className="text-zinc-700 ml-1">
+                {bookingDataObj?.carType}
+              </span>
             </h5>
-            <div className="w-8/12 sm:w-full">
-              <img src="/images/cars/v-1.png" alt="" />
+            <div className="w-8/12 sm:w-full -ml-2">
+              <img
+                src={`/images/cars/${
+                  bookingDataObj?.carType ?? 'Audi A1 S'
+                }.png`}
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -118,7 +132,10 @@ const Modal = props => {
         <div className="h-px bg-zinc-200 mb-2" />
 
         {/* Personal Info - Form*/}
-        <PersonalInfoForm />
+        <PersonalInfoForm
+          onConfirm={props.onConfirm}
+          onIsSubmitted={props.onIsSubmitted}
+        />
       </div>
     </div>
   );
@@ -140,6 +157,8 @@ const DetailsForm = props => {
         <Modal
           onConfirm={props.onConfirm}
           showBookingForm={props.showBookingForm}
+          bookingDataObj={props.bookingDataObj}
+          onIsSubmitted={props.onIsSubmitted}
         />,
         portalElement
       )}

@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ScrollBar */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 25px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(255, 172, 125);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff853e;
+  border-radius: 20rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7c30;
+}
+
 .btn {
   background: linear-gradient(to right, #ff4c30, #ff6830, #fff, #f3806f);
   background-size: 300% 100%;
@@ -28,7 +48,8 @@ nav.shrink {
   left: 0;
   right: 0;
 }
-.modal {
+.modal,
+.confirm-box {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -43,6 +64,9 @@ nav.shrink {
 .modal.show {
   opacity: 1;
   pointer-events: all;
+}
+.modal ::-webkit-scrollbar {
+  width: 6px;
 }
 
 .banner-img {
