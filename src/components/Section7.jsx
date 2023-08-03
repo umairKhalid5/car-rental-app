@@ -1,11 +1,19 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Section7 = () => {
+  const { ref: section7Ref, inView: section7InView } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <>
       <section
-        className="relative section-7 px-4 bg-testimonials-bg mt-16"
+        className={`slide-down ${
+          section7InView && 'appear'
+        } relative section-7 px-4 bg-testimonials-bg mt-16`}
         id="app"
+        ref={section7Ref}
       >
         {/* Image */}
         <div className="app-img">

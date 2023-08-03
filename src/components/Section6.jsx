@@ -6,14 +6,23 @@ import {
   Typography,
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
+import { useInView } from 'react-intersection-observer';
 
 const Section6 = () => {
+  const { ref: section6Ref, inView: section6InView } = useInView({
+    triggerOnce: true,
+  });
+
   const [expanded, setExpanded] = useState(false);
+
   const handleChange = (isExpanded, panel) =>
     setExpanded(isExpanded ? panel : false);
 
   return (
-    <section className="relative p-4 pb-10">
+    <section
+      className={`slide-down ${section6InView && 'appear'} relative p-4 pb-10`}
+      ref={section6Ref}
+    >
       {/* FAQ Container */}
       <div className="max-w-3xl mx-auto mt-16">
         {/* Text */}

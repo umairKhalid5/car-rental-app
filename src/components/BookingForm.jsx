@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import DetailsForm from './DetailsForm';
 
 const cars = [
   'Select your car type',
@@ -72,10 +74,19 @@ const hours = [
   '11:30 PM',
 ];
 const BookingForm = () => {
+  const { ref: bookingRef, inView: bookingInView } = useInView({
+    triggerOnce: true,
+  });
+
+  const [showBookingForm, setShowBookingForm] = useState(false);
+
   return (
     <div
-      className="relative z-20 max-w-6xl mx-auto mt-5 mb-10 px-4 py-8 bg-white shadow-md rounded md:px-10 lg:mt-32"
+      className={`booking-box ${
+        bookingInView && 'appear'
+      } relative z-20 max-w-6xl mx-auto mt-5 mb-10 px-4 py-8 bg-white shadow-md rounded md:px-10 lg:mt-32`}
       id="booking"
+      ref={bookingRef}
     >
       <h3 className="text-2xl font-semibold mb-5 tracking-tight">Book a car</h3>
 
@@ -169,10 +180,19 @@ const BookingForm = () => {
           </div>
         </div>
         {/* Search Button */}
-        <button className="self-end btn py-4 font-semibold px-10 text-white shadow-lg shadow-shadowClr rounded w-full sm:flex-1">
+        <button
+          className="self-end btn py-4 font-semibold px-10 text-white shadow-lg shadow-shadowClr rounded w-full sm:flex-1"
+          onClick={() => setShowBookingForm(true)}
+        >
           Search
         </button>
       </div>
+
+      {/* Details Form */}
+      <DetailsForm
+        onConfirm={setShowBookingForm}
+        showBookingForm={showBookingForm}
+      />
     </div>
   );
 };

@@ -1,25 +1,43 @@
 import React from 'react';
 import Navbar from './Navbar';
 import BookingForm from './BookingForm';
+import { useInView } from 'react-intersection-observer';
+
+const options = {
+  triggerOnce: true,
+};
 
 const Section1 = () => {
+  const { ref: planBoxRef, inView: planBoxInView } = useInView(options);
+  const { ref: carBannerRef, inView: carBannerInView } = useInView(options);
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    rootMargin: '-100px',
+    initialInView: true,
+  });
+
   const scrollToBooking = () =>
-    document.getElementById('booking').scrollIntoView({
-      behavior: 'smooth',
-    });
+    document.getElementById('booking').scrollIntoView({ block: 'center' });
 
   return (
-    <section className="relative bg-backgroundLight px-4 overflow-hidden">
+    <section
+      className="relative bg-backgroundLight px-4 overflow-hidden"
+      ref={sectionRef}
+    >
       {/* Banner Image */}
       <div className="hidden z-10 absolute right-0 banner-img w-full h-full lg:block"></div>
 
       {/* Navbar */}
-      <Navbar />
+      <Navbar sectionInView={sectionInView} />
 
       {/* Plan Your Trip */}
       <div className="relative z-20 mt-14 md:mt-28 flex items-center justify-between max-w-6xl mx-auto">
         {/* Left-Text */}
-        <div className="w-full md:w-2/5">
+        <div
+          className={`save-big-box ${
+            planBoxInView && 'appear'
+          } w-full md:w-2/5`}
+          ref={planBoxRef}
+        >
           <p className="text-lg font-medium mb-2">Plan your trip now</p>
           <h3 className="text-6xl font-semibold mb-5">
             Save <span className="text-fontAccent">big</span> with our car
@@ -45,7 +63,12 @@ const Section1 = () => {
         </div>
 
         {/* Car-Banner */}
-        <div className="hidden absolute top-0 -right-0 translate-x-10 md:block md:w-3/5 lg:w-8/12">
+        <div
+          className={`car-banner ${
+            carBannerInView && 'appear'
+          } hidden absolute top-0 -right-0 translate-x-10 md:block md:w-3/5 lg:w-8/12`}
+          ref={carBannerRef}
+        >
           <img src="/images/banner_car.png" alt="car-banner" />
         </div>
       </div>

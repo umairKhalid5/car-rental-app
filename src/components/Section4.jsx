@@ -1,8 +1,19 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Section4 = () => {
+  const { ref: section4Ref, inView: section4InView } = useInView({
+    triggerOnce: true,
+    rootMargin: '170px',
+  });
+
   return (
-    <section className="relative px-4 overflow-hidden pb-24">
+    <section
+      className={`slide-down ${
+        section4InView && 'appear'
+      } relative px-4 overflow-hidden pb-24`}
+      ref={section4Ref}
+    >
       <div className="max-w-6xl mx-auto mt-16">
         {/* Jeep Background */}
         <img src="/images/jeep.png" alt="img" className="w-full object-cover" />

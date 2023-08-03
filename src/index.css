@@ -16,6 +16,35 @@ button:active {
 select {
   cursor: pointer;
 }
+nav {
+  position: relative;
+  padding-top: 20px;
+  transition: all 0.3s ease-in;
+}
+nav.shrink {
+  padding-block: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.backdrop,
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in;
+}
+.backdrop.show,
+.modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .banner-img {
   background-image: url('/images/banner_image.png');
   background-position: top right;
@@ -112,6 +141,78 @@ select {
 .mobile-wrapper.show .mobile-menu {
   translate: 0;
   transition-delay: 0.3s;
+}
+
+/* Intersection Observer Classes */
+.save-big-box,
+.car-banner {
+  opacity: 0;
+  transition: all 0.5s linear;
+  transition-delay: 0.2s;
+}
+.save-big-box {
+  translate: -50%;
+}
+.car-banner {
+  translate: 50%;
+}
+.booking-box {
+  opacity: 0;
+  translate: 0 5%;
+  transition: all 0.5s linear;
+  transition-delay: 0.2s;
+}
+.slide-down {
+  opacity: 0;
+  translate: 0 40%;
+  transition: all 0.5s linear;
+}
+.appear {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Scroll Top Btn */
+.topBtn {
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+}
+.topBtn.come-in {
+  pointer-events: all;
+  animation: pop 300ms ease-out forwards;
+}
+.topBtn.go-out {
+  pointer-events: none;
+  animation: out 300ms ease-out forwards;
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+    scale: 0.3;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.2;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 0.3;
+  }
 }
 
 /* 

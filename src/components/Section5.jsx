@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import { useInView } from 'react-intersection-observer';
 
 const testimonialsArr = [
   {
@@ -35,6 +36,9 @@ const testimonialsArr = [
 ];
 
 const Section5 = () => {
+  const { ref: section5Ref, inView: section5InView } = useInView({
+    triggerOnce: true,
+  });
   const [winSize, setWinSize] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -49,8 +53,11 @@ const Section5 = () => {
 
   return (
     <section
-      className="px-4 overflow-hidden bg-testimonials-bg"
+      className={`slide-down ${
+        section5InView && 'appear'
+      } px-4 overflow-hidden bg-testimonials-bg`}
       id="testimonials"
+      ref={section5Ref}
     >
       <div className="max-w-6xl mx-auto mt-16">
         {/* Text */}
@@ -76,8 +83,9 @@ const Section5 = () => {
             <Carousel
               infiniteLoop
               autoPlay
-              swipeable={false}
-              emulateTouch={false}
+              // swipeable={false}
+              swipeable
+              // emulateTouch={false}
               useKeyboardArrows
               showStatus={false}
               showThumbs={false}

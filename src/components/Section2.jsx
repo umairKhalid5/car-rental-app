@@ -1,8 +1,19 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const Section2 = () => {
+  const { ref: section2Ref, inView: section2InView } = useInView({
+    triggerOnce: true,
+    rootMargin: '70px',
+  });
+
   return (
-    <section className="px-4 overflow-hidden">
+    <section
+      className={`slide-down ${
+        section2InView && 'appear'
+      } px-4 overflow-hidden`}
+      ref={section2Ref}
+    >
       <div className="max-w-6xl mx-auto mt-16">
         {/* Plan your trip */}
         <div className="text-center">
