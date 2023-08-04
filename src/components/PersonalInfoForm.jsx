@@ -326,7 +326,7 @@ const PersonalInfoForm = ({ onConfirm, onIsSubmitted }) => {
       </div>
 
       {/* Reserve Now Button */}
-      <div className="bg-zinc-200 px-4 py-6 w-full flex mt-2 justify-end">
+      <div className="bg-zinc-200 px-4 py-6 pb-12 w-full flex mt-2 justify-end sm:pb-6">
         <button
           disabled={!formIsValid}
           className="bg-fontAccent py-4 font-semibold px-10 text-white shadow-lg shadow-shadowClr rounded w-full sm:w-auto disabled:opacity-70 disabled:shadow-none disabled:cursor-not-allowed disabled:active:translate-y-0 disabled:bg-zinc-400 duration-200"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import BookingForm from './BookingForm';
 import { useInView } from 'react-intersection-observer';
@@ -8,7 +8,7 @@ const options = {
   triggerOnce: true,
 };
 
-const Section1 = () => {
+const Section1 = ({ activeLink, setActiveLink }) => {
   const { ref: planBoxRef, inView: planBoxInView } = useInView(options);
   const { ref: carBannerRef, inView: carBannerInView } = useInView(options);
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -21,6 +21,10 @@ const Section1 = () => {
   const scrollToBooking = () =>
     document.getElementById('booking').scrollIntoView({ block: 'center' });
 
+  useEffect(() => {
+    if (sectionInView) setActiveLink('Home');
+  }, [sectionInView]);
+
   return (
     <section
       className="relative bg-backgroundLight px-4 overflow-hidden"
@@ -30,7 +34,7 @@ const Section1 = () => {
       <div className="hidden z-10 absolute right-0 banner-img w-full h-full lg:block"></div>
 
       {/* Navbar */}
-      <Navbar sectionInView={sectionInView} />
+      <Navbar sectionInView={sectionInView} activeLink={activeLink} />
 
       {/* Plan Your Trip */}
       <div className="relative z-20 mt-14 md:mt-28 flex items-center justify-between max-w-6xl mx-auto">

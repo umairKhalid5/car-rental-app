@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { useInView } from 'react-intersection-observer';
 
-const Footer = () => {
+const Footer = ({ setActiveLink }) => {
+  const { ref: footerRef, inView: footerInView } = useInView({
+    threshold: 0.9,
+  });
+
+  useEffect(() => {
+    if (footerInView) setActiveLink('Contact');
+  }, [footerInView]);
+
   return (
-    <section className="px-4" id="contact">
+    <section className="px-4" id="contact" ref={footerRef}>
       <div className="max-w-6xl mx-auto mt-20">
         {/* Parent Flex */}
         <div className="flex flex-col justify-between space-y-10 lg:flex-row lg:space-x-3 lg:space-y-0">

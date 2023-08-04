@@ -10,30 +10,32 @@ import Footer from './components/Footer';
 import ScrollTopBtn from './components/ScrollTopBtn';
 
 function App() {
+  const [activeLink, setActiveLink] = useState('Home');
+
   return (
     <div className="pb-10">
       {/* Navbar, Header & Booking Box */}
-      <Section1 />
+      <Section1 activeLink={activeLink} setActiveLink={setActiveLink} />
 
       {/* Plan Your Trip */}
       <Section2 />
 
       {/* About & CTA */}
-      <Section3 />
+      <Section3 setActiveLink={setActiveLink} />
 
       {/* Jeep-BG & Why Choose Us */}
       <Section4 />
 
       {/* Testimonials */}
-      <Section5 />
+      <Section5 setActiveLink={setActiveLink} />
 
       {/* FAQs */}
       <Section6 />
 
       {/* App */}
-      <Section7 />
+      <Section7 setActiveLink={setActiveLink} />
 
-      <Footer />
+      <Footer setActiveLink={setActiveLink} />
 
       <ScrollTopBtn />
     </div>

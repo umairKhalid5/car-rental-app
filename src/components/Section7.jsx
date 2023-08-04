@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const Section7 = () => {
+const Section7 = ({ setActiveLink }) => {
   const { ref: section7Ref, inView: section7InView } = useInView({
     triggerOnce: true,
   });
 
+  const { ref: activeLinkRef, inView: sectionInView } = useInView({
+    threshold: 0.7,
+  });
+
+  useEffect(() => {
+    if (sectionInView) setActiveLink('App');
+  }, [sectionInView]);
+
   return (
-    <>
+    <div ref={activeLinkRef}>
       <section
         className={`slide-down ${
           section7InView && 'appear'
@@ -42,7 +50,7 @@ const Section7 = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

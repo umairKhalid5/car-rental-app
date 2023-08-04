@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import DetailsForm from './DetailsForm';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -87,6 +87,8 @@ const BookingForm = ({ onIsSubmitted }) => {
     triggerOnce: true,
   });
 
+  const dropOffRef = useRef();
+
   const [showBookingForm, setShowBookingForm] = useState(false);
 
   const [carType, setCarType] = useState('Audi A1 S');
@@ -110,7 +112,10 @@ const BookingForm = ({ onIsSubmitted }) => {
   const onDropOffLocationChange = e => setDropOffLocation(e.target.value);
   const onPickUpTimeChange = e => setPickUpTime(e.target.value);
   const onDropOffTimeChange = e => setDropOffTime(e.target.value);
-  const onPickUpDateChange = e => setPickUpDate(e.target.value);
+  const onPickUpDateChange = e => {
+    setPickUpDate(e.target.value);
+    dropOffRef.current.focus();
+  };
   const onDropOffDateChange = e => setDropOffDate(e.target.value);
 
   const dateFormatter = date =>
@@ -285,6 +290,7 @@ const BookingForm = ({ onIsSubmitted }) => {
                 type="date"
                 min={pickUpDate ?? new Date().toISOString().split('T')[0]}
                 onChange={onDropOffDateChange}
+                ref={dropOffRef}
               />
             </div>
           </div>

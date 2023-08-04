@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-const Navbar = ({ sectionInView }) => {
+const Navbar = ({ sectionInView, activeLink }) => {
   const [showMobNav, setShowMobNav] = useState(false);
 
   return (
@@ -16,15 +16,17 @@ const Navbar = ({ sectionInView }) => {
       <div className="max-w-6xl flex items-center justify-between mx-auto">
         {/* Logo & Nav Links */}
         <div className="left flex items-center gap-14">
-          <div className="logo w-36 cursor-pointer">
+          <a href="#" className="logo w-36 cursor-pointer">
             <img src="/images/logo.png" alt="logo" />
-          </div>
+          </a>
           {/* Nav Items */}
           <ul className="hidden lg:flex lg:items-center lg:gap-9 lg:font-medium">
             <li>
               <a
                 href="#"
-                className="text-activeEl hover:text-activeEl duration-150"
+                className={`${
+                  activeLink === 'Home' ? 'text-activeEl' : ''
+                } hover:text-activeEl duration-150`}
               >
                 Home
               </a>
@@ -35,25 +37,42 @@ const Navbar = ({ sectionInView }) => {
               </a>
             </li>
             <li>
-              <a href="#about" className="hover:text-activeEl duration-150">
+              <a
+                href="#about"
+                className={`${
+                  activeLink === 'About' ? 'text-activeEl' : ''
+                } hover:text-activeEl duration-150`}
+              >
                 About
               </a>
             </li>
             <li>
               <a
                 href="#testimonials"
-                className="hover:text-activeEl duration-150"
+                className={`${
+                  activeLink === 'Testimonials' ? 'text-activeEl' : ''
+                } hover:text-activeEl duration-150`}
               >
                 Testimonials
               </a>
             </li>
             <li>
-              <a href="#app" className="hover:text-activeEl duration-150">
+              <a
+                href="#app"
+                className={`${
+                  activeLink === 'App' ? 'text-activeEl' : ''
+                } hover:text-activeEl duration-150`}
+              >
                 App
               </a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-activeEl duration-150">
+              <a
+                href="#contact"
+                className={`${
+                  activeLink === 'Contact' ? 'text-activeEl' : ''
+                } hover:text-activeEl duration-150`}
+              >
                 Contact
               </a>
             </li>
@@ -87,9 +106,13 @@ const Navbar = ({ sectionInView }) => {
           <div className="mobile-menu py-6 px-4 bg-white h-screen">
             {/* Logo and Close Button */}
             <div className=" flex items-center justify-between">
-              <div className="logo w-32">
+              <a
+                href="#"
+                className="logo w-32"
+                onClick={() => setShowMobNav(false)}
+              >
                 <img src="/images/logo.png" alt="logo" />
-              </div>
+              </a>
               <div
                 className="p-[2px] border rounded cursor-pointer"
                 onClick={() => setShowMobNav(false)}
@@ -103,7 +126,9 @@ const Navbar = ({ sectionInView }) => {
               <li>
                 <a
                   href="#"
-                  className="text-activeEl hover:text-activeEl duration-150"
+                  className={`${
+                    activeLink === 'Home' ? 'text-activeEl' : ''
+                  } hover:text-activeEl duration-150`}
                   onClick={() => setShowMobNav(false)}
                 >
                   Home
@@ -121,7 +146,9 @@ const Navbar = ({ sectionInView }) => {
               <li>
                 <a
                   href="#about"
-                  className="hover:text-activeEl duration-150"
+                  className={`${
+                    activeLink === 'About' ? 'text-activeEl' : ''
+                  } hover:text-activeEl duration-150`}
                   onClick={() => setShowMobNav(false)}
                 >
                   About
@@ -130,7 +157,9 @@ const Navbar = ({ sectionInView }) => {
               <li>
                 <a
                   href="#testimonials"
-                  className="hover:text-activeEl duration-150"
+                  className={`${
+                    activeLink === 'Testimonials' ? 'text-activeEl' : ''
+                  } hover:text-activeEl duration-150`}
                   onClick={() => setShowMobNav(false)}
                 >
                   Testimonials
@@ -139,7 +168,9 @@ const Navbar = ({ sectionInView }) => {
               <li>
                 <a
                   href="#app"
-                  className="hover:text-activeEl duration-150"
+                  className={`${
+                    activeLink === 'App' ? 'text-activeEl' : ''
+                  } hover:text-activeEl duration-150`}
                   onClick={() => setShowMobNav(false)}
                 >
                   App
@@ -148,7 +179,9 @@ const Navbar = ({ sectionInView }) => {
               <li>
                 <a
                   href="#contact"
-                  className="hover:text-activeEl duration-150"
+                  className={`${
+                    activeLink === 'Contact' ? 'text-activeEl' : ''
+                  } hover:text-activeEl duration-150`}
                   onClick={() => setShowMobNav(false)}
                 >
                   Contact
