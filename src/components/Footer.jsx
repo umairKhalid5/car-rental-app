@@ -17,14 +17,14 @@ const Footer = ({ setActiveLink }) => {
 
   return (
     <section className="px-4" id="contact" ref={footerRef}>
-      <div className="max-w-6xl mx-auto mt-20">
+      <div className="max-w-6xl mx-auto mt-20 sm:mt-28">
         {/* Parent Flex */}
         <div className="flex flex-col justify-between space-y-10 lg:flex-row lg:space-x-3 lg:space-y-0">
           {/* <div className="footer-grid"> */}
           {/* Car Rental */}
           <div className="flex flex-col justify-between space-y-6">
             <h4 className="text-2xl">
-              <span className="font-semibold">CAR</span> Rental
+              <span className="font-semibold">Bold</span> Arrivals
             </h4>
             <p className="text-slate-500 w-full lg:max-w-[270px]">
               Use securing confined his shutters. Delightful as he it acceptance
@@ -99,10 +99,10 @@ const Footer = ({ setActiveLink }) => {
                 className="w-full sm:max-w-xs bg-slate-100 pl-5 pr-2 py-3 text-sm focus:outline-none border-2 rounded focus:border-fontAccent focus:shadow-md focus:shadow-shadowClr transition duration-200"
                 placeholder="Enter Email Address"
               />
-              <div>
+              <div className="sm:max-w-xs">
                 <button
                   type="submit"
-                  className="btn w-full sm:w-auto py-3 px-10 text-white font-semibold shadow-lg shadow-shadowClr rounded"
+                  className="btn w-full py-3 px-10 text-white font-semibold shadow-lg shadow-shadowClr rounded"
                 >
                   Subscribe
                 </button>

@@ -38,6 +38,7 @@ const testimonialsArr = [
 const Section5 = ({ setActiveLink }) => {
   const { ref: section5Ref, inView: section5InView } = useInView({
     triggerOnce: true,
+    threshold: 0.2,
   });
   const { ref: activeLinkRef, inView: sectionInView } = useInView({
     threshold: 0.7,

@@ -30,10 +30,13 @@ function App() {
       <Section5 setActiveLink={setActiveLink} />
 
       {/* FAQs */}
-      <Section6 />
+      <Section6 setActiveLink={setActiveLink} />
 
       {/* App */}
       <Section7 setActiveLink={setActiveLink} />
+
+      {/* Divider */}
+      <div className="h-px w-full bg-slate-200 my-16 sm:my-32"></div>
 
       <Footer setActiveLink={setActiveLink} />
 

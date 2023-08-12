@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const Section3 = ({ setActiveLink }) => {
   const { ref: section3Ref, inView: section3InView } = useInView({
     triggerOnce: true,
+    threshold: 0.2,
   });
   const { ref: activeLinkRef, inView: sectionInView } = useInView({
     threshold: 0.7,
@@ -32,14 +33,14 @@ const Section3 = ({ setActiveLink }) => {
 
             {/* About Text */}
             <div className="flex flex-col space-y-3 flex-1">
-              <p className="text-xl sm:text-2xl font-medium tracking-tighter">
+              <p className="text-center md:text-left text-xl sm:text-2xl font-medium tracking-tighter">
                 About Company
               </p>
-              <h3 className="w-full text-3xl sm:text-5xl font-semibold md:max-w-md tracking-tighter">
+              <h3 className="text-center md:text-left w-full text-3xl sm:text-5xl font-semibold md:max-w-md tracking-tighter">
                 You start the engine and your adventure begins
               </h3>
               <div>
-                <p className="text-slate-500 md:max-w-md mt-6">
+                <p className="text-center md:text-left text-slate-500 md:max-w-md mt-6">
                   Certain but she but shyness why cottage. Guy the put
                   instrument sir entreaties affronting. Pretended exquisite see
                   cordially the you. Weeks quiet do vexed or whose. Motionless

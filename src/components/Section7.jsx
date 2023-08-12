@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const Section7 = ({ setActiveLink }) => {
   const { ref: section7Ref, inView: section7InView } = useInView({
     triggerOnce: true,
+    threshold: 0.2,
   });
 
   const { ref: activeLinkRef, inView: sectionInView } = useInView({
@@ -19,7 +20,7 @@ const Section7 = ({ setActiveLink }) => {
       <section
         className={`slide-down ${
           section7InView && 'appear'
-        } relative section-7 px-4 bg-testimonials-bg mt-16`}
+        } relative section-7 px-4 bg-testimonials-bg mt-20 sm:py-10`}
         id="app"
         ref={section7Ref}
       >

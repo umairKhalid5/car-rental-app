@@ -4,7 +4,8 @@ import { useInView } from 'react-intersection-observer';
 const Section4 = () => {
   const { ref: section4Ref, inView: section4InView } = useInView({
     triggerOnce: true,
-    rootMargin: '170px',
+    // rootMargin: '-170px',
+    threshold: 0.2,
   });
 
   return (
@@ -25,21 +26,21 @@ const Section4 = () => {
         {/* Why Choose Us */}
         <div className="mt-10 flex flex-col justify-between space-y-10 lg:flex-row lg:space-x-6 lg:space-y-0">
           {/* Left */}
-          <div className="left flex flex-col space-y-3">
+          <div className="left flex flex-col space-y-3 ">
             <div className="mb-5 md:mb-10 space-y-3">
-              <p className="text-xl sm:text-2xl font-medium tracking-tighter">
+              <p className="text-center md:text-left text-xl sm:text-2xl font-medium tracking-tighter">
                 Why Choose Us
               </p>
-              <h3 className="w-full text-3xl sm:text-5xl font-semibold lg:max-w-lg tracking-tighter">
+              <h3 className="text-center md:text-left w-full text-3xl sm:text-5xl font-semibold lg:max-w-lg tracking-tighter">
                 Best valued deals you will ever find
               </h3>
             </div>
-            <p className="text-slate-500 lg:max-w-lg">
+            <p className="text-center md:text-left text-slate-500 lg:max-w-lg">
               Thrown shy denote ten ladies though ask saw. Or by to he going
               think order event music. Incommode so intention defective at
               convinced. Led income months itself and houses you.
             </p>
-            <div>
+            <div className="flex justify-center md:justify-normal">
               <button className="btn w-full sm:w-auto py-3 px-10 text-white font-semibold shadow-lg shadow-shadowClr rounded">
                 Find Deals
               </button>

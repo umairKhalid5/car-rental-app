@@ -37,7 +37,7 @@ const Section1 = ({ activeLink, setActiveLink }) => {
       <Navbar sectionInView={sectionInView} activeLink={activeLink} />
 
       {/* Plan Your Trip */}
-      <div className="relative z-20 mt-14 md:mt-28 flex items-center justify-between max-w-6xl mx-auto">
+      <div className="relative z-20 mt-24 md:mt-28 flex items-center justify-between max-w-6xl mx-auto">
         {/* Left-Text */}
         <div
           className={`save-big-box ${
@@ -45,12 +45,14 @@ const Section1 = ({ activeLink, setActiveLink }) => {
           } w-full md:w-2/5`}
           ref={planBoxRef}
         >
-          <p className="text-lg font-medium mb-2">Plan your trip now</p>
-          <h3 className="text-6xl font-semibold mb-5">
+          <p className="text-center md:text-left text-xl font-medium mb-2">
+            Plan your trip now
+          </p>
+          <h3 className="text-center md:text-left text-6xl font-semibold mb-5">
             Save <span className="text-fontAccent">big</span> with our car
             rental
           </h3>
-          <p className="text-slate-500">
+          <p className="text-center md:text-left text-slate-500">
             To contribute to positive change and achieve our sustainability
             goals with many extraordinary
           </p>
