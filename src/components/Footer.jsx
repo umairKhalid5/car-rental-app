@@ -37,7 +37,7 @@ const Footer = ({ setActiveLink }) => {
               </div>
               <div className="flex items-center space-x-3">
                 <EmailIcon />
-                <p>example@carrental.com</p>
+                <p>example@boldarrivals.com</p>
               </div>
             </div>
           </div>
@@ -114,11 +114,21 @@ const Footer = ({ setActiveLink }) => {
         <div className="w-full h-px bg-slate-100 my-14"></div>
 
         {/* Copyright & Socials */}
-        <div className="flex flex-col items-center justify-between space-y-5 my-5 sm:flex-row sm:space-y-0 sm:space-x-5">
-          <p className="text-sm">
-            &copy;2020 <span className="font-semibold">Car Rental</span>. All
-            Rights Reserved
-          </p>
+        <div className="flex flex-col items-center justify-between space-y-5 my-5 sm:items-start sm:flex-row sm:space-y-0 sm:space-x-5">
+          <div className="flex flex-col space-y-1">
+            <p className="text-sm">
+              &copy;2020 <span className="font-semibold">Bold Arrivals</span>.
+              All Rights Reserved
+            </p>
+            <a
+              href="https://xpeedstudio.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-slate-500 text-center text-sm cursor-pointer tracking-wide hover:text-fontAccent duration-200 underline underline-offset-2 sm:text-left"
+            >
+              Design by XpeedStudio
+            </a>
+          </div>
           <div className="icons flex items-center space-x-5">
             <div
               className="cursor-pointer"

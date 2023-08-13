@@ -17,7 +17,7 @@ const Section6 = ({ setActiveLink }) => {
     threshold: 0.7,
   });
 
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState('panel1');
 
   useEffect(() => {
     if (sectionInView) setActiveLink('FAQs');
