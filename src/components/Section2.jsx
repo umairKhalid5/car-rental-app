@@ -4,7 +4,8 @@ import { useInView } from 'react-intersection-observer';
 const Section2 = () => {
   const { ref: section2Ref, inView: section2InView } = useInView({
     triggerOnce: true,
-    rootMargin: '70px',
+    threshold: 0.2,
+    // rootMargin: '70px',
   });
 
   return (

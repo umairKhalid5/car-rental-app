@@ -18,8 +18,11 @@ const Section1 = ({ activeLink, setActiveLink }) => {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const scrollToBooking = () =>
-    document.getElementById('booking').scrollIntoView({ block: 'center' });
+  const scrollToBooking = () => {
+    // document.getElementById('booking').scrollIntoView({ block: 'center' });
+    let bookingEl = document.getElementById('booking').offsetTop;
+    window.scrollTo({ top: bookingEl - 90, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (sectionInView) setActiveLink('Home');
